@@ -3,8 +3,8 @@ const FavoriteMovies = require('../models/favoriteMovies.model');
 // Thêm phim vào danh sách yêu thích
 const addFavoriteMovie = async (req, res) => {
   try {
-    const { userId } = req.params;
-    const { title, genre, releaseDate, rating } = req.body;
+    const { userId } = req.body;
+    const { title, genre, releaseDate, rating, poster } = req.body;
 
     // Tìm danh sách phim yêu thích của người dùng
     let favoriteMovies = await FavoriteMovies.findOne({ user: userId });
@@ -15,7 +15,7 @@ const addFavoriteMovie = async (req, res) => {
     }
 
     // Thêm phim vào danh sách
-    favoriteMovies.movies.push({ title, genre, releaseDate, rating });
+    favoriteMovies.movies.push({ title, genre, releaseDate, rating , poster });
     await favoriteMovies.save();
 
     res.status(201).json({ message: 'Movie added to favorites', favoriteMovies });

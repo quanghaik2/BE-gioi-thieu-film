@@ -3,7 +3,7 @@ const router = express.Router();
 const favoriteMoviesController = require('../controllers/favoriteMovies.controller');
 
 // Thêm phim yêu thích
-router.post('/:userId', favoriteMoviesController.addFavoriteMovie);
+router.post('/', favoriteMoviesController.addFavoriteMovie);
 
 // Lấy danh sách phim yêu thích
 router.get('/:userId', favoriteMoviesController.getFavoriteMovies);

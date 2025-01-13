@@ -8,6 +8,7 @@ const favoriteMoviesSchema = new mongoose.Schema({
       genre: { type: String, required: true },
       releaseDate: { type: Date, required: true },
       rating: { type: Number, min: 0, max: 10 },
+      poster: { type: String, required: true },
     },
   ],
 }, {
